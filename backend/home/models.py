@@ -8,6 +8,14 @@ from django.db import models
 
 class CustomText(models.Model):
     title = models.CharField(max_length=150,)
+    test = models.BigIntegerField(null=True, blank=True,)
+    tsrr = models.ForeignKey(
+        "home.CustomText",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customtext_tsrr",
+    )
 
     def __str__(self):
         return self.title
