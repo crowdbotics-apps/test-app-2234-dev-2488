@@ -7,13 +7,6 @@ from django.utils.translation import ugettext_lazy as _
 
 class User(AbstractUser):
     name = models.CharField(null=True, blank=True, max_length=255,)
-    test = models.ForeignKey(
-        "home.CustomText",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        related_name="user_test",
-    )
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
